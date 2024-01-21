@@ -42,5 +42,8 @@ print(ro,mi)
 for i in range(len(arr)):
     print(arr[i])
 
+for i in range(2):
+    print("numero: " + str(i))
+
 
 
