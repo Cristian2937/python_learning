@@ -83,6 +83,66 @@ y = "5"
 print(x + y) # concatena le due strighe e restituisce "55"
 
 
+#---------
+# LE STRINGHE
+
+"""
+  - è possibile prendere parti di stringhe utilizzando la sintassi
+  stringa[:5], stringa[2:], stringa[-5:-2] etc...
+  
+  - modificare una stringa con i metodi
+  upper() lower() strip() split() replace()
+  
+  - usare format() per combinare stringhe e numeri
+  
+  - escape dei caratteri 
+"""
+
+# piccolo tip è possibile scrivere in un loop una stringa e python può eseguire tot cicli per tot lettere della stringa
+# es.
+i = 0
+for carattere in "computer":
+    print(i)
+    i += 1
+
+print()    
+# prendere dei caratteri specificandone il range tra di loro
+# es.
+
+stringa = "ciao sono luca"
+print(stringa[:3]) # stamperà solamente "cia"
+
+print(stringa[2:]) # stamperà da "ao sono luca" quindi dalla posizione 2 compresa fino alla fine della stringa
+
+print(stringa[:-5]) # stamperà partendo dalla posizione -5 non compresa la stringa "ciao sono"
+
+print(stringa[1:9]) # stamperà la stringa in un range dalla posizione 1 compresa fino alla 9 non compresa
+
+# la funzione strip() toglie gli spazi a inizio e fine della frase come il trim in PHP
+
+stringaStrip = "  Ciao sono luca   "
+print(stringaStrip) # prima dello strip
+# per i metodi delle stringhe si puo utilizzare la sintassi con il punto
+# es.
+print(stringaStrip.strip())
+
+# la funzione replace() prende due parametri il primo quello da cambiare e il secondo quello che deve cambiare
+stringaReplace = "ciao sono Orlando"
+print(stringaReplace.replace("o","w"))# il replace è case sensitive quindi fa distinzioni tra maiuscole e minuscole
+
+# possibile metodo per concatenare numeri e stringhe tramite funzione format()
+x = {
+    "anni": 23,
+    "peso": 97
+}
+stringaFormat = "Ciao sono \"Antonio\" ho {} anni e peso {} kg" # dentro la stringa c'è anche un esempio di escape
+print(stringaFormat.format(x["anni"],x["peso"]))
+
+
+
+
+
+
 
 
 
