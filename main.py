@@ -46,4 +46,43 @@ for i in range(2):
     print("numero: " + str(i))
 
 
+# -------- 
+# TIPI DI DATI
+
+"""
+str: "ciao"
+int: x = 20
+float: x = 20.5
+bool: x = True oppure x = False
+list: x = ["Roma","Milano"]
+tuple: ("Roma","Milano")
+dict (dictionary): {"nome":"Cristian", "eta",23}
+set: x = {"Roma","Milano","Napoli"}
+"""
+
+# funzione per sapere che tipo di dato contiene una variabile
+tipoDiDato = True
+print(type(tipoDiDato))
+
+# questo è il modo in cui è possibile leggere un dictionary
+dictio = {
+    "nome":"Cristian", 
+    "eta":23
+    }
+print(dictio["nome"])
+
+cast = str(10)
+print(type(cast)) # ritorna stringa 
+
+cast = float(10)
+print(cast) # stampa 10.0
+print(type(cast))# ritorna float
+
+x = "5"
+y = "5"
+print(x + y) # concatena le due strighe e restituisce "55"
+
+
+
+
 
