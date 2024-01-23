@@ -139,6 +139,46 @@ stringaFormat = "Ciao sono \"Antonio\" ho {} anni e peso {} kg" # dentro la stri
 print(stringaFormat.format(x["anni"],x["peso"]))
 
 
+# ---------------
+# OPERATORI ARITMETICI
+
+"""
+ - operatori aritmetici
+ - operatori di assegnamento
+ - precedenza operatori
+ - metodi min,max,abs,pow
+"""
+x = 5
+y = 9
+
+print(x + y)    # addizione
+print(x - y)    # sottrazione
+print(x * y)    # moltiplicazione
+print(x / y)    # divisione
+print(x % y)    # modulo o resto
+print(x ** y)   # potenza
+print(x // y)   # arrotondamento per difetto
+
+# operatori di assegnamento
+
+x = 5
+print("prima era "+ str(x))
+x += 2
+print("dopo è " + str(x))
+
+x = 10
+y = 20
+lista = [10,20,3,90]
+print("il numero minore è: " + str(min(x,y))) # min funzione per ottenere il numero maggiore tra due numeri oppure una lista
+print("il numero minore è: " + str(min(lista))) # min funzione per ottenere il numero maggiore tra due numeri oppure una lista
+print("il numero maggiore è: " + str(max(x,y))) # max funzione per ottenere 
+
+x = -10
+print("il valore assoluto di -10 è: " + str(abs(x))) # abs funzione per ottenere il valore assoluto di un numero
+
+x = 2
+print(pow(x,2)) # pow funzione per elevare a potenza un numero 
+
 
 
 
