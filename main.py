@@ -180,6 +180,28 @@ x = 2
 print(pow(x,2)) # pow funzione per elevare a potenza un numero 
 
 
+# --------------------------
+# Condizioni if
+
+"""
+    - if semplice
+    - operatori di comparazione ==, ===, !=, !==, >,<,>=,<=
+    - elif (else if), else
+    - operatori logici && ||
+    - versione short hand
+    - if innestati
+"""
+
+x = 5
+
+# per le condizioni o per le funzioni è necessario indentare il codice
+if x > 10:
+    print(str(x) + " è maggiore di 10")
+else:
+    print(str(x) + " non è maggiore di 10")
+
+
+
 
 
 
