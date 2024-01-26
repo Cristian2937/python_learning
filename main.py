@@ -230,7 +230,7 @@ else:
     
 # condizioni if innestate
 
-x = input("verifica se pari o dispari: ")
+""" x = input("verifica se pari o dispari: ")
 
 if (int(x) % 2 == 0):
     print("il numero è pari")
@@ -239,11 +239,18 @@ if (int(x) % 2 == 0):
     else:
         print("Il numero è pari e maggiore di 10")
 else: 
-    print("il numero è dispari")
+    print("il numero è dispari") """
 
     
-    
 # -----------------------
+# CICLI 
+print()
+print("CICLI")
+"""
+   - while e sintassi del ciclo while
+   - for e sintassi del ciclo for
+   - break, continue, else    
+"""
 
 
 
