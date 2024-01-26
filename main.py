@@ -48,6 +48,8 @@ for i in range(2):
 
 # -------- 
 # TIPI DI DATI
+print()
+print("TIPI DI DATI")
 
 """
 str: "ciao"
@@ -85,6 +87,8 @@ print(x + y) # concatena le due strighe e restituisce "55"
 
 #---------
 # LE STRINGHE
+print()
+print("LE STRINGHE")
 
 """
   - è possibile prendere parti di stringhe utilizzando la sintassi
@@ -141,6 +145,8 @@ print(stringaFormat.format(x["anni"],x["peso"]))
 
 # ---------------
 # OPERATORI ARITMETICI
+print()
+print("OPERATORI ARITMETICI")
 
 """
  - operatori aritmetici
@@ -182,12 +188,14 @@ print(pow(x,2)) # pow funzione per elevare a potenza un numero
 
 # --------------------------
 # Condizioni if
+print()
+print("Condizioni if")
 
 """
     - if semplice
     - operatori di comparazione ==, ===, !=, !==, >,<,>=,<=
     - elif (else if), else
-    - operatori logici && ||
+    - operatori logici and, or
     - versione short hand
     - if innestati
 """
@@ -197,8 +205,45 @@ x = 5
 # per le condizioni o per le funzioni è necessario indentare il codice
 if x > 10:
     print(str(x) + " è maggiore di 10")
+elif x == 10:
+    print(str(x) + " è uguale a 10")
 else:
     print(str(x) + " non è maggiore di 10")
+    
+    
+x = y = 10
+
+if x > 10 and y < 10:
+    print("x e y sono maggiori di 10")
+else:
+    print("x e y sono uguali a 10")
+    
+if x > 10 or y == 10:
+    print("o X o Y sono uguali a 10")
+else:
+    print("X e Y non sono uguali a 10")
+    
+if not (x < 10): # l'operatore "not" equivale al operatore logico !
+    print("x non è minore di 10")
+else:
+    print("x è minore di 10")
+    
+# condizioni if innestate
+
+x = input("verifica se pari o dispari: ")
+
+if (int(x) % 2 == 0):
+    print("il numero è pari")
+    if (int(x) < 10):
+        print("Il numero è pari e minore di 10")
+    else:
+        print("Il numero è pari e maggiore di 10")
+else: 
+    print("il numero è dispari")
+
+    
+    
+# -----------------------
 
 
 
