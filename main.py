@@ -317,4 +317,28 @@ else:
     print("fine ciclo for")
     
 
+# -----------------------------
+# COLLEZIONI DI DATI
+print()
+print("COLLEZIONI DI DATI")
+
+"""
+    le collezioni in python prevedono:
+    - liste o comunemente chiamati array (in python la definizione corretta è liste)
+    - tuple
+    - dictionary, la sintassi è simile a quella del JSON
+    - set
+    
+        - le liste sono collezioni ordinate e modificabili. Permettono duplicati
+        - le tuple sono collezioni ordinate ma immutabili. Permettono duplicati
+        - i set sono collezioni NON ordinate e NON indicizzate. NON permettono duplicati
+        - i dictionary sono collezioni ordinate e modificabili (dalla versione 3.7). NON permettono duplicati 
+"""
+
+tup = ("ROMA","MILANO")
+# tup[0] = "TERZO MONDO" # VERO le tuple non possono essere modificate 
+print(tup[0])
+
+
+
 
