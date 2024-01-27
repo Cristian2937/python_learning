@@ -252,11 +252,69 @@ print("CICLI")
    - break, continue, else    
 """
 
+# Ciclo while, il ciclo while per non essere mandato in loop infinito ha sempre bisogno di una condizione
+# valida per il quale quando raggiunta il ciclo si fermi altrimenti continua all'infinito 
+
+i = 0
+
+# sintassi while semplice
+while i <= 6:
+    print(i)
+    i +=1
+
+print()
+# sintassi while con utilizzo del costrutto "break"
+
+i = 1
+#       il costrutto break fa si che raggiunta una certa condizione il loop venga stoppato immediatamente
+while i < 6:
+    print(i)
+    if i == 3:
+        break
+    i += 1
+
+print()
+# sintassi while con costrutto "continue"
+
+i = 1
+#       il costrutto continue, secondo una certa condizione fa saltare l'iterazione
+while i < 6:
+    i += 1
+    if i == 3:
+        continue
+    print(i)
+
+print()
+# sintassi while con costrutto "else"
+
+i = 0
+stringaFineCiclo = "il ciclo è finito con il numero {}" 
+while i < 6:
+    print(i)
+    i += 1
+else:
+    print(stringaFineCiclo.format(i))
+    
+print()
+# sintassi ciclo "for"
+
+x = ["Roma","Milano","Terzo mondo"]
 
 
-
-
-
-
+for citta in x:
+    print(citta)
+    
+stringa = "stringa"
+for r in range(len(stringa)):
+    print(stringa[r])
+    
+    
+    
+for colonna in range(6):
+    for riga in range(10):
+        print("(" + str(colonna) + ": " + str(riga) + ")")
+else:
+    print("fine ciclo for")
+    
 
 
