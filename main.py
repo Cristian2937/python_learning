@@ -339,6 +339,177 @@ tup = ("ROMA","MILANO")
 # tup[0] = "TERZO MONDO" # VERO le tuple non possono essere modificate 
 print(tup[0])
 
+# SE OCCORRE UTILIZZARE LA SINTASSI SOTTOSTANTE OVVERO INSTANZIARE L'OGGETTO TUPLA E INSERIRE ELEMENTI AL SUO INTERNO
+# OCCORRE DICHIARARE CON DOPPIE PARENTESI TONDE es. tuple((ELEMENTI))
+tupla = tuple(("ROMA","MILANO","VENEZIA".lower()))
+
+print(tupla)
+
+# STESSO DISCORSO PER LE LISTE SE SI INSTANZIA L'OGGETTO list OCCORRE DICHIARARE UNA DOPPIA PARTENTESI
+# es. list(())
+lista = list(())
+i = 1
+while i < 10:
+    lista.append(i)
+    i += 1
+    
+print(lista)
+
+# --------------------------
+# METODI DELLE LISTE
+print()
+print("METODI DELLE LISTE")
+
+"""
+    per le liste o le collezioni in generale abbiamo alcuni tipi di metodi:
+    - len() : per sapere la lunghezza effettiva della nostra lista, 
+              come in altri linguaggi di programmazione funziona allo stesso modo,
+              ovvero conta gli elementi effettivi non partendo da 0 ma da 1
+"""
+lunghezza = list((1,2,3,4,5,6,7))
+print("Lunghezza della lista: " + str(len(lunghezza)))
+
+
+"""
+    - type() : come dice il nome è una funzione utile per sapere di che tipo di dato stiamo parlando,
+               viene applicato non solo alle liste ma a qualsiasi tipo di dato
+"""
+tipo = list("sono una lista che al suo interno contiene una stringa")
+print("Tipo della stringa: " + str(type(tipo)))
+
+"""
+    è possibile accedere agli elementi delle liste in diversi modi:
+    - indice singolo
+    - range [1:3]
+    - negativo
+"""
+accedereAllElemento = [1,2,3,4]
+print(accedereAllElemento[-1]) # accedo all'ultimo elemento della lista
+print(accedereAllElemento[1:3]) # accedo agli elementi della lista tramite range partendo dalla posizione 1 fino alla posizione 2 escludendo l'ultima 
+
+cambiareGliElementiInRange = ["milano","roma","napoli","verona","civitaVecchia"]
+print("prima del cambio in range dei valori: " + str(cambiareGliElementiInRange))
+
+cambiareGliElementiInRange[2:] = ["venezia","frosinone"] # sto effettuando un cambio dei valori della lista con il nuovo range di valori dalla posizione due fino alla fine
+print("dopo il cambio in range dei valori: " + str(cambiareGliElementiInRange))
+
+
+# -----------------
+# METODI DELLE LISTE
+print()
+print("METODI DELLE LISTE") 
+
+
+print("Aggiungere elementi alla lista")
+"""
+    è possibile inserire gli elementi all'interno di una lista eseguendo anche utilizzando dei metodi:
+    
+    -   append() inserisce un valore all'interno della lista posizionandolo alla fine di essa
+    
+    -   insert() dove inserisce l'elemento all'interno di una lista specificando in quale posizione essere inserito,
+        facendo così sposta la lista di N posizioni per inserire l'elemento nella posizione richiesta
+    
+    -   extend() come dice il nome estende la grandezza di base della lista permettendo di aggiungere al suo interno tutti
+        gli altri elementi di una seconda lista 
+"""
+
+list_append = [1,2,3,4,5]
+print("Prima list_append era: " + str(list_append))
+list_append.append(6) # append inserisce alla fine della lista un nuovo elemento
+print("Dopo list_append utilizzando il metodo append() diventa: " + str(list_append))
+
+
+list_insert = 'a'
+print("Prima list_append senza metodo insert() era: " + str(list_append))
+list_append.insert(2,list_insert) # utilizzo il metodo insert() per inserire N elementi all'interno di una lista 
+                                 # scegliendo in che posizione metterli
+print("Dopo list_append con metodo insert() diventa: " + str(list_append))
+
+list_extend = ['a','b','c']
+print("Prima list_extend era: "+ str(list_extend))
+
+list_extend2 = list(([1,2,3]))
+list_extend.extend(list_extend2)
+print("Dopo list_extend utilizzando il metodo extend() diventa: "+ str(list_extend))
+
+print()
+print("Rimuovere elementi dalla lista")
+"""
+    Oltre ai metodi che vanno ad aggiungere elementi all'interno di una lista
+    abbiamo anche i metodi che vanno a rimuovere elementi in una lista:
+    
+    -   remove() la funzione rimuove esattamente la prima occorrenza che trova
+    
+    -   pop() rimuove un elemento specificando a quale indice rimuoverlo, se non specificato
+        va a togliere di default l'ultimo elemento della lista
+    
+    -(costrutto) del, rimuove totalmente la lista probabilmente fa in modo che venga cancellato il suo indirizzo di memoria 
+        non permettendone più la sua lettura
+    
+    -   clear() pulisce la lista ritornando una lista completamente vuota []
+"""
+
+list_remove = [1,2,3,4,5,2]
+print("Prima di rimuovere un elemento dentro list_remove era: "+ str(list_remove))
+
+list_remove.remove(2) # La funzione remove() va a togliere la prima occorrenza che trova in questo caso 
+                      # è andato a togliere il primo 2 che ha trovato
+
+print("Dopo aver rimosso un elemento dentro list_remove diventa: "+ str(list_remove))
+print()
+
+list_pop = [1,2,3,4,5]
+print("Prima del metodo pop() list_pop era: " + str(list_pop))
+
+list_pop.pop(0) # specificando al metodo pop() l'indice lui toglie il valore corrisposto
+list_pop.pop() # non specificando al metodo pop() cosa deve togliere di default toglierà l'ultimo elemento nella lista
+print("Dopo il metodo pop() list_pop diventa: " + str(list_pop))
+print()
+list_del = [1,2,3,4]
+del list_del # il costrutto del va a togliere dalla memoria tutto quello che viene posizionato dopo di esso
+
+# print(list_del) # ritorna un errore perchè del ha eliminato la lista/variabile/oggetto dalla memoria
+
+list_clear = list((1,2))
+
+print("Prima del metodo clear() list_clear era: " + str(list_clear))
+
+list_clear.clear()
+print("Dopo il metodo clear() list_clear diventa: " + str(list_clear))
+print()
+
+# List comprehension
+print("LIST COMPREHENSION")
+lista_citta = ['milano','roma','udine']
+
+[print(citta) for citta in lista_citta]
+
+diction = dict({ 
+    0:{
+        "nome":"Cristian",
+        "eta": 23
+    },
+    1:{
+        "nome": "Eliseo",
+        "eta": 30
+    }
+})
+
+newArr = [print(diction[d]) for d in diction if diction[d]["eta"] != 30]
+
+
+list_sort = ["udine","roma","napoli","venezia"]
+print("Prima del metodo sort() list_sort era: " + str(list_sort))
+
+list_sort = [s.upper() for s in list_sort] # utilizzo della list comprehension oltre il metodo sort
+list_sort.sort()
+print("Dopo il metodo sort() ASC list_sort diventa: " + str(list_sort)) # l'ordine viene eseguito in modo ascendete ASC di default
+
+list_sort.sort( reverse=True )
+print("Dopo il metodo sort() DESC list_sort diventa: " + str(list_sort)) # l'ordine viene eseguito in modo ascendete 
+
+
+
 
 
 
