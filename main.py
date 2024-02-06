@@ -508,6 +508,114 @@ print("Dopo il metodo sort() ASC list_sort diventa: " + str(list_sort)) # l'ordi
 list_sort.sort( reverse=True )
 print("Dopo il metodo sort() DESC list_sort diventa: " + str(list_sort)) # l'ordine viene eseguito in modo ascendete 
 
+# -------------------------
+print()
+print("TUPLE")
+
+"""
+    Per dichiarare una tupla occorre utilizzare le parentesi tonde
+    es. creazione_tupla = ("roma",).
+    
+    é importante per la creazione di una tupla dopo averla dichiarata
+    al suo interno dopo il primo elemento bisogna inserire una virgola,
+    altrimenti python non riesce ad identificarne il tipo corretto
+    es. creazione_tupla = ("roma",)
+    
+    I metodi delle tuple comprendono: len(), type(), tuple()
+"""
+
+creazione_tupla_senza_virgola = ("milano")
+print("Per aver omesso la virgola dopo il primo elemento ottengo: " + str(type(creazione_tupla_senza_virgola))) # non avendo inserito la virgola dopo il primo valore il tipo non sarà <class 'tuple'> ma <class 'str'>
+
+    
+creazione_tupla_con_virgola = ("roma",)
+print("Dopo aver inserito una virgola dopo il primo elemento ottengo: " + str(type(creazione_tupla_con_virgola)))
+
+tuple_len = ("milano","roma","napoli")
+print("La lunghezza della tupla è di: " + str(len(tuple_len)))
+
+# Accedere agli elementi della tupla
+
+tuple_access = tuple(("milano","roma","napoli"))
+print(tuple_access[0:1])
+
+# condizione if per le liste/tuple
+
+if "milano" in tuple_access:
+    print("esiste")
+    for i in range(len(tuple_access)):
+        print(tuple_access[i])
+else:
+    print("non ESISTE")
+
+# Rimozione di elementi in una tupla
+
+rimuovi_elemento_tupla = tuple(("milano","roma","napoli"))
+#rimuovi_elemento_tupla.remove(0) # ERRORE, le tuple possono avere duplicati ma il loro contenuto non può essere rimosso/sostituito
+# print(rimuovi_elemento_tupla)
+
+# Per rimuovere un elemento o cambiarlo occorre prima trasformare una tupla in list ed effettuare il cambio/rimozione e successivamente farla ritornare una tupla
+
+tupla_da_cambiare = ("mil","roma","napoli")
+print("Prima del cambio dell'elemento abbiamo: {}".format(tupla_da_cambiare[0]))
+
+# escamotage per cambiare gli elementi di una tupla, ovvero, trasformarla prima in lista modificare l'elemento e poi ristraformarla in tupla
+tupla_cambiata = list(tupla_da_cambiare)
+tupla_cambiata[0] = 'milano'
+tupla_da_cambiare = tuple(tupla_cambiata)
+
+print("Dopo il cambio dell'elemento abbiamo: {}".format(tupla_da_cambiare[0]))
+
+# escamotage per eliminare gli elementi di una tupla, ovvero, trasformarla prima in lista eliminare l'elemento e poi ristraformarla in tupla
+tupla_da_eliminare = ("milano","roma","napoli")
+print("Prima dell'eliminazione dell'elemento abbiamo: " + str(tupla_da_eliminare))
+
+tupla_eliminata = list(tupla_da_eliminare)
+tupla_eliminata.remove(tupla_eliminata[0])
+tupla_da_eliminare = tuple(tupla_eliminata)
+
+print("Dopo l'eliminazione dell'elemento abbiamo: " + str(tupla_da_eliminare))
+
+# -------------
+print()
+print("SPACCHETTARE UNA TUPLA")
+
+citta = ("milano","roma","napoli")
+
+# METODO PER SPACCHETTARE UNA TUPLA,(molto statico) 
+(x,y,z) = citta
+print(x)
+print(y)
+print(z)
+
+citta = ("milano","roma","napoli","venezia")
+
+(x,y,*z) = citta # utilizzando l'asterisco * in una delle variabili utilizzate per spacchettare prenderà 2 elementi nella tupla 
+print(x)
+print(y)
+print(z)
+
+# -------------
+print()
+print("UNIRE LE TUPLE")
+
+"""
+    Per unire una tupla ad un'altra basta assegnare l'operatore + tra le due
+"""
+
+tup1 = ("milano","roma")
+tup2 = ("napoli","venezia")
+unione = tup1 + tup2
+print(unione)
+
+# -------------
+print()
+print("ACCEDERE ALL'INDICE DI UNA TUPLA")
+
+access_tuple_index = tuple(("milano","roma","napoli","venezia"))
+print("Venezia si trova all'indice: " + str(access_tuple_index.index("venezia")))
+
+
 
 
 
