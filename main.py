@@ -616,6 +616,78 @@ access_tuple_index = tuple(("milano","roma","napoli","venezia"))
 print("Venezia si trova all'indice: " + str(access_tuple_index.index("venezia")))
 
 
+# ----------------------
+print()
+print("SET")
+
+"""
+    - I set sono collezioni di dati non ordinate, non indicizzate,
+      non modificabili e non permettono duplicati.
+    
+    - E' possibile creare un set con tipi "normali" o "mischiati"
+    
+    - Metodi principali dei set: len(), type(), set()
+    
+    - E' possibile accedere agli elementi dei set con un loop
+    
+    - Modificare gli elementi di un set non è possibile, si possono solamente aggiungere e rimuovere 
+    
+    - Metodi per aggiungere elementi ai set: add() update()
+    
+    - Rimuovere elementi ai set con: remove(), discard(), pop(), clear(), del
+    
+    - Unire i set con: union() e update(),  intersection_update(), intersection(), symmetric_difference_update(), symmetric_difference() 
+"""
+
+# dichiarazione di un set
+primo_set = {"milano","roma","napoli"}
+secondo_set = {"milano",24,True} # i set accettano diversi tipologie di dato
+
+# DATO CHE I SET NON SONO INDICIZZATI I VALORI ALL'INTERNO DEI SET SARANNO SEMPRE LETTI IN MANIERA CASUALE
+print(secondo_set)
+
+# PER POTER ACCEDERE AGLI ELEMENTI DI UN SET E' POSSIBILE FARLO TRAMITE LOOP
+
+for elemento in primo_set:
+    print(elemento)
+    
+print()
+
+# Fun fact mettendo tipi diversi all'interno del set non sempre viene letto in maniera casuale
+for elemento in secondo_set:
+    print(elemento)
+    
+# Aggiungere un elemento al set
+
+add_elemento = {"milano","roma","napoli"}
+print("Prima dell'aggiunta dell'elemento era: "+ str(add_elemento))
+
+add_elemento.add("venezia")
+print("Dopo l'aggiunta dell'elemento diventa: "+ str(add_elemento))
+
+# Unire un set ad un altro set
+
+update_set_uno = {"milano","roma"}
+update_set_due = {"napoli","venezia"}
+
+
+update_set_uno.update(update_set_due) # update va ad unire un set all'interno di un altro
+print(update_set_uno)
+
+print()
+# Rimuovere elementi nel set 
+
+remove_elemento = {"milano","roma","napoli"}
+print("Prima era del remove() era:" + str(remove_elemento))
+remove_elemento.remove("milano")
+print("Dopo il remove() diventa:" + str(remove_elemento))
+
+discard_elemento = {"milano","roma","napoli"}
+print("Prima era del discar() era:" + str(remove_elemento))
+
+discard_elemento.discard("venezia")
+print("Dopo il discar() diventa:" + str(remove_elemento)) # a differenza del remove, discard non lancia una eccezione se un elemento non è presente nel set 
+
 
 
 
