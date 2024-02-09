@@ -680,7 +680,9 @@ print()
 remove_elemento = {"milano","roma","napoli"}
 print("Prima era del remove() era:" + str(remove_elemento))
 remove_elemento.remove("milano")
-print("Dopo il remove() diventa:" + str(remove_elemento))
+print("Dopo il remove() diventa:" + str(remove_elemento)) # remove come dice il nome rimuove un elemento all'interno del set, se le'elemento non esiste lancia un'eccezione
+# remove_elemento.remove("venezia")
+# print(remove_elemento) # errore, l'elemento non esiste all'interno del set perciò non è possibile effettuare l'eliminazione 
 
 discard_elemento = {"milano","roma","napoli"}
 print("Prima era del discar() era:" + str(remove_elemento))
@@ -688,6 +690,68 @@ print("Prima era del discar() era:" + str(remove_elemento))
 discard_elemento.discard("venezia")
 print("Dopo il discar() diventa:" + str(remove_elemento)) # a differenza del remove, discard non lancia una eccezione se un elemento non è presente nel set 
 
+
+# Rimuovere l'ultimo elemento dal set 
+pop_elemento = {"milano","roma","napoli"}
+
+pop_elemento.pop() # ATTENZIONE: il metodo pop rimuove l'ultimo elemento all'interno di un set, ma dato che il set non è una collezione ordinata l'ultimo elemento verrà rimosso in maniera casuale 
+print(pop_elemento)
+
+# Cancellare dalla memoria un set
+# PER ELIMINARE DALLA MEMORIA UN SET OCCORRE UTILIZZARE IL COSTRUTTO "del"
+
+del_elemento = {1,2,3,4}
+del del_elemento 
+# print(del_elemento) # ERRORE: del ha cancellato dalla memoria il set e quindi non è più possibile recuperarne il contenuto
+
+# ------------
+print()
+print("UNIRE I SET")
+# Unire i set
+
+union_set1 = {"roma","milano"}
+union_set2 = {"napoli","verona","roma"}
+union_all = union_set1.union(union_set2) # union ripulisce i valori duplicati facendo in modo che se ne ottenga solamente uno
+
+print(union_all)
+
+
+union_update1 = {"roma","milano"}
+union_update2 = {"milano","napoli"}
+
+union_update1.update(union_update2) # update come union aggiorna il set e ripulisce i duplicati mostrandone solamente uno
+
+print(union_update1)
+
+print()
+
+set_intersection_update1 = {"roma","milano","napoli"}
+set_intersection_update2 = {"milano","venezia","padova"}
+
+# intersection update effettua l'operazione dentro direttamente dentro il set
+set_intersection_update1.intersection_update(set_intersection_update2) # restituisce solamente i valori duplicati, fa l'esatto contrario di union e update
+
+print(set_intersection_update1)
+
+set_intersection1 = {"milano","roma"}
+set_intersection2 = {"napoli","roma"}
+
+set_intersectionUnion = set_intersection1.intersection(set_intersection2) # al contrario di intersection_update, intersection restituisce un nuovo set e non un valore "None" quindi opera su se stesso
+print(set_intersectionUnion)
+
+print()
+
+symmetric_difference1 = {"milano","roma","napoli"}
+symmetric_difference2 = {"milano","roma","venezia"}
+
+symmetric_difference1.symmetric_difference_update(symmetric_difference2) # symmetric_difference_update come intersection_update agisce direttamente dentro ad uno dei set senza instanziarne uno nuovo, 
+                                                                         # ma non accetta i duplicati
+
+new_symmetric_difference = symmetric_difference1.symmetric_difference(symmetric_difference2) # symmetric_difference per farlo funzionare occorre che sia instanziato in una nuova variabile, 
+                                                                                             # symmetric_difference ritorna ogni singolo elemento duplicato che è contenuto in entrambi i set
+
+print(symmetric_difference1)
+print(new_symmetric_difference)
 
 
 
