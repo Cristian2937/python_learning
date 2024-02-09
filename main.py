@@ -754,6 +754,113 @@ print(symmetric_difference1)
 print(new_symmetric_difference)
 
 
+# -------------
+print()
+print("I DICTIONARY")
+
+"""
+    I dictionary sono collezioni di dati ordinate, modificabili, ma non accettano duplicati
+"""
+
+# Sintassi di un dictionary
+
+persona_dictionary = {
+    "Persona1": {
+     "nome": "Cristian",
+    "cognome": "Pignatiello",
+    "eta": 28,
+    "eta": 23   
+    }
+}
+
+print(len(persona_dictionary))
+
+print(type(persona_dictionary))
+
+print(persona_dictionary) # dato che il dictionary non permette duplicati, non lancia errori se ne trova ma prenderà solamente l'ultimo valore duplicato
+
+print(persona_dictionary["Persona1"]["nome"]) # accesso per chiave tramite parentesi quadre
+print(persona_dictionary["Persona1"].get("nome"))
+
+print(persona_dictionary.keys()) # con .keys() ottengo tutte le chiavi del dictionary
+
+print(persona_dictionary.values()) # .values() restituisce tutti i valori all'interno del dictionary
+
+print(persona_dictionary.items()) # .items() restituisce una tupla contenente una coppia chiave/valore
+
+print("nome" in persona_dictionary["Persona1"]) # metodo per verificare se una chiave esiste in un dictionary
+
+persona_dictionary["Persona1"].update({"nome":"Antonio"})
+persona_dictionary["Persona1"].update({"colore":"Antonio"})
+print(persona_dictionary)
+
+# metodo per togliere un elemento dal dictionary
+persona_pop_dictionary = {
+    "Persona1": {
+     "nome": "Cristian",
+    "cognome": "Pignatiello",
+    "eta": 28,
+    "eta": 23
+    }
+}
+persona_pop_dictionary["Persona1"].pop("eta")
+
+print(persona_pop_dictionary)
+
+
+persona_pop_item_dictionary = {
+    "Persona1": {
+     "nome": "Cristian",
+    "eta": 28,
+    "eta": 23,
+    "cognome": "Pignatiello"
+    }
+}
+persona_pop_item_dictionary["Persona1"].popitem() # popitem elimina l'ultimo elemento all'interno di un dictionary
+print(persona_pop_item_dictionary)
+
+persona_clear_dictionary = {
+    "Persona1": {
+     "nome": "Cristian",
+    "eta": 28,
+    "eta": 23,
+    "cognome": "Pignatiello"
+    }
+}
+
+persona_clear_dictionary.clear() # .clear() svuota tutto il dictionary
+
+persona_del_dictionary = {
+    "Persona1": {
+     "nome": "Cristian",
+    "eta": 28,
+    "eta": 23,
+    "cognome": "Pignatiello"
+    }
+}
+
+# per i dicionary il del può eliminare dalla memoria anche solamente un elemento presenre all'interno del dictionary
+del persona_del_dictionary["Persona1"]["nome"]
+# print(persona_del_dictionary["Persona1"]["nome"])
+
+del persona_del_dictionary
+# print(persona_del_dictionary) # ERRORE perchè è stato eliminato dalla memoria
+
+# CICLARE SUI DICTIONARY
+# 1) utilizzando il ciclo for:
+
+persona_for_dictionary = {
+    "Persona1": {
+     "nome": "Cristian",
+    "eta": 28,
+    "eta": 23,
+    "cognome": "Pignatiello"
+    }
+}
+
+for persone in persona_for_dictionary.items():
+    print(persone)
+
 
 
 
