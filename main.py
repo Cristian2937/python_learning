@@ -884,4 +884,75 @@ for key,dati in persona_dictionary.items():
                 print(ind)
         print(dato)
 
+# -------------
+print()
+print("FUNZIONI")
+
+"""
+    - Creare una funzione
+    - Chiamare una funzione
+    
+    - Arbitrary arguments, Keyword Arguments, Arbitrary Keyword Arguments
+    - Parametri di default
+    - Return dei valori
+"""
+
+# Dichiarare una funzione
+def ciao():         # per dichiarare una funzione non viene utilizzato il costrutto function come gli altri linguaggi ma "def"
+    print("Ciao!!")
+
+ciao()              # Una volta creata la funzione per richiamarla occore richiamare il nome della funzione
+
+
+# Aggiungere dei parametri alle funzioni
+def fai_la_pasta(tipo_pasta):
+    print("metti l'aqua")
+    print("fai bollire")
+    print("Metti su "+ tipo_pasta)
+    
+fai_la_pasta("Mezze maniche")
+
+print()
+
+# dichiarare le funzioni mettendo un asterisco "*" prima della variabile rende possibile l'assegnazione di più argomenti
+def fai_la_pasta(*opzioni):
+    print("metti l'aqua")
+    print("fai bollire")
+    print("Metti su "+ opzioni[0])
+    if opzioni[1]:                 # DATO CHE L'ASTERISCO RENDE POSSIBILE AGGIUNGERE PIù ARGOMENTI ALLA VOLTA, RENDE POSSIBILE COSTRUIRE CONDIZIONI APPOSITE PER I DIVERSI PARAMETRI
+        print("Metti anche il sugo")
+    
+fai_la_pasta("Spaghetti",True) # True è il secondo argomento in *opzioni
+print()
+
+# Keyword arguments permette di non seguire l'ordine degli argomenti a patto che si utilizzi una specifica sintassi
+def fai_la_pasta(tipo_pasta, sugo): 
+    print("metti l'aqua")
+    print("fai bollire")
+    print("Metti su "+ tipo_pasta)
+    if sugo:
+        print("Metti anche il sugo")
+        
+fai_la_pasta(sugo=True, tipo_pasta="Bucatini")  # Sintassi per le Keyword arguments 
+print()
+
+# Sintassi per dichiarare parametri di default nel caso non si vengano aggiunti argomenti nel momento in cui viene richiamata la funzione
+def fai_la_pasta(tipo_pasta = "Spaghetti"): 
+    print("metti l'aqua")
+    print("fai bollire")
+    print("Metti su "+ tipo_pasta)
+    
+fai_la_pasta()
+print()
+
+
+def fai_la_pasta(tipo_pasta = "Spaghetti")-> str: 
+    print("metti l'aqua")
+    print("fai bollire")
+    return "Metti su "+ tipo_pasta
+
+print(fai_la_pasta())
+
+
+
 
