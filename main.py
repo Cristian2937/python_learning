@@ -1,4 +1,4 @@
-
+from Classi.FirstClass import Persona # SINTASSI PER IMPORTARE UNA CLASSE DA UN FILE
 # il print funziona come un echo in PHP oppure un System.out.println in JAVA
 print("Hello World!")
 
@@ -955,4 +955,20 @@ print(fai_la_pasta())
 
 
 
+# ---------
+print()
+print("Classi e oggetti")
 
+"""
+    - Creare una classe
+    - Instanziare un oggetto
+    - Il parametro self
+    - Modificare, eliminare proprietà di un oggetto
+    - Eliminare l'oggetto
+"""
+
+# Sintassi per instanziare l'oggetto
+persona1 = Persona()
+persona1.set_nome("Jhon")
+persona1.set_cognome("Lennon")
+print(persona1.nome,persona1.cognome)
