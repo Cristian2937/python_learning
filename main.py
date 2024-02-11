@@ -858,9 +858,30 @@ persona_for_dictionary = {
     }
 }
 
+# ciclare gli elementi di un dictionary con al suo interno altri elementi
 for persone in persona_for_dictionary.items():
     print(persone)
 
+print()
+persona_dictionary = {
+     "Persona1": {
+     "nome": "Cristian",
+     "cognome": "Pignatiello",
+     "eta": 23,
+     "indirizzo": {
+         "citta":"Roma",
+         "cap":"00175"
+     }
+    }
+}
 
+for key,dati in persona_dictionary.items():
+
+    for k,dato in dati.items():
+        print(k)
+        if (k == "indirizzo"):
+            for ind in dato:
+                print(ind)
+        print(dato)
 
 
