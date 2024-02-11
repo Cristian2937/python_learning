@@ -946,7 +946,7 @@ fai_la_pasta()
 print()
 
 
-def fai_la_pasta(tipo_pasta = "Spaghetti")-> str: 
+def fai_la_pasta(tipo_pasta = "Spaghetti")-> str:  # per far si che il valore di ritorno sia quello che vogliamo noi utilizzare la sintassi "-> tipo_di_dato"
     print("metti l'aqua")
     print("fai bollire")
     return "Metti su "+ tipo_pasta
