@@ -992,3 +992,57 @@ insegnante1.set_cognome("Il bro")
 insegnante1.set_categoria("Tutor")
 print(insegnante1.to_string() + " ed è "+ insegnante1.get_categoria()) # metodo to string custom (guardare SecondClass nel file Classi)
 insegnante1.saluta()
+
+# --------
+print()
+print("MODULI")
+
+"""
+    - Cos'è un modulo : un modulo è un file esterno con all'interno delle funzioni
+    - Creare un modulo
+    - Funzioni e variabili in un modulo
+    - Creare un alias
+    - Moduli built in (platform,math)
+    - Funzione dir()
+    - Importare solo una parte del modulo
+"""
+                        # l' "as" può essere utilizzato per dichiarare alias per i moduli
+import moduli.firstModule as miomodulo # E' possibile importare i moduli in qualsiasi punto dell'applicazione
+
+persona = miomodulo.persona1 # ho importato dal modulo firstModule il dictionary persona1
+miomodulo.saluta(persona["nome"])# ho importato dal modulo firstModule la funzione saluta
+
+# E' possibile importare anche solo una parte di un modulo nel caso in cui non ci occorre tutto il suo contenuto es.
+from moduli.firstModule import persona2 
+persona = persona2  # da firstModule importo solamente il dictionary persona2
+print(persona["nome"])
+
+print()
+
+# ALCUNI moduli built-in di python:
+import platform as pt
+system = pt.system()
+processor = pt.processor()
+print(system)
+print(processor)
+
+
+import math # Modulo math in python
+pi_greco = math.pi
+print(pi_greco)
+
+print(math.floor(2.90))
+
+# IMPORTANTE ED UTILE
+"""
+    Se vogliamo sapere quali metodi/argomenti/attributi esistono all'interno di un modulo
+    possiamo utilizzare la funzione dir()
+"""
+
+print(dir(math)) # Quì tramite la funzione dir ottengo tutti i metodi disponibili all'interno del modulo math
+
+print()
+
+print(dir(pt)) # Quì tramite la funzione dir ottengo tutti i metodi disponibili all'interno del modulo platform
+
+
