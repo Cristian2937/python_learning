@@ -1,4 +1,5 @@
 from Classi.FirstClass import Persona # SINTASSI PER IMPORTARE UNA CLASSE DA UN FILE
+from Classi.SecondClass import Insegnante # l'import delle classi può essere eseguito in qualsiasi punto dell'applicazione
 # il print funziona come un echo in PHP oppure un System.out.println in JAVA
 print("Hello World!")
 
@@ -972,3 +973,22 @@ persona1 = Persona()
 persona1.set_nome("Jhon")
 persona1.set_cognome("Lennon")
 print(persona1.nome,persona1.cognome)
+
+# ----------
+print()
+print("Ereditarietà")
+
+"""
+    - Creare una classe figlia (guardare SecondClass nel file Classi)
+    - Costruttore della classe figlia (guardare SecondClass nel file Classi)
+    - La funzione super
+    - Proprietà esclusive della classe Figlia
+    - i metodi e l'overriding
+"""
+
+insegnante1 = Insegnante() # questa classe al suo interno ha ereditato la classe Persona (guardare SecondClass nel file Classi)
+insegnante1.set_nome("Giovanni")
+insegnante1.set_cognome("Il bro")
+insegnante1.set_categoria("Tutor")
+print(insegnante1.to_string() + " ed è "+ insegnante1.get_categoria()) # metodo to string custom (guardare SecondClass nel file Classi)
+insegnante1.saluta()
