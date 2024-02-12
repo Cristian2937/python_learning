@@ -13,3 +13,6 @@ class Persona:
         self.cognome = cognome
     def get_cognome(self)->str:
         return self.cognome
+    
+    def saluta(self):
+        print("Ciao sono " + self.nome)
