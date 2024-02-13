@@ -1045,4 +1045,20 @@ print()
 
 print(dir(pt)) # Quì tramite la funzione dir ottengo tutti i metodi disponibili all'interno del modulo platform
 
+# -----------
+print()
+print("DATE")
+
+import datetime as dt # assegnare sempre un alias per gli import
+
+dataNow = dt.datetime.now() # con .now() si ottiene il current timestamp
+print(dataNow)
+
+dataPrecisa = dt.datetime(2024,2,13) # sintassi per dichiarare una data partendo da un timestamp preciso
+print(dataPrecisa)
+
+dataFormat = dt.datetime.strftime(dt.datetime.now(),"%d/%m/%Y %H:%M:%S") # .strftime(tempo,formato) prende due parametri, 
+                                                                # il primo sarebbe il timestamp effettivo, il secondo invece il formato che si vuole ottenere 
+print(dataFormat)
+
 
