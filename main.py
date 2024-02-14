@@ -1,3 +1,6 @@
+import sys
+print(sys.executable)
+
 from Classi.FirstClass import Persona # SINTASSI PER IMPORTARE UNA CLASSE DA UN FILE
 from Classi.SecondClass import Insegnante # l'import delle classi può essere eseguito in qualsiasi punto dell'applicazione
 # il print funziona come un echo in PHP oppure un System.out.println in JAVA
@@ -1122,6 +1125,19 @@ print()
 
 json_formatted = json.dumps(json_format,indent = 4,separators=(". "," = "),sort_keys=True) # se si aggiunge sort_keys=bool si possono ordinare le chiavi se True le ordina in modo crescente False in modo decrescente all'interno del JSON
 print(json_formatted)
+
+# -----------
+print()
+print("PIP")
+
+"""
+    - Introduzione a PIP e ai pacchetti
+    - Check e installazione PIP (python get-pip.py), download pacchetti
+    - Usare, rimuovere e mostrare pacchetti
+    
+    (pypi.org sito per scaricare i pacchetti in python)
+"""
+
 
 
 
