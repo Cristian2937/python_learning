@@ -1061,4 +1061,67 @@ dataFormat = dt.datetime.strftime(dt.datetime.now(),"%d/%m/%Y %H:%M:%S") # .strf
                                                                 # il primo sarebbe il timestamp effettivo, il secondo invece il formato che si vuole ottenere 
 print(dataFormat)
 
+# -----------
+print()
+print("JSON")
+
+"""
+    - Leggere i JSON
+    - Dati convertibili in JSON:
+        # dict
+        # list
+        # tuple
+        # string
+        # int
+        # float
+        # True
+        # False
+        # None
+    
+    - Formattare il JSON
+    - Ordinare il JSON
+"""
+import json
+
+json_esempio = '{"nome":"Luca","cognome":"Rossi","eta":25}'
+
+json_loads = json.loads(json_esempio)
+print(json_loads)
+print("Tipo del JSON: " + str(type(json_loads))) # una volta trasformato in JSON 
+
+for load in json_loads:
+    print("Chiave: "+ str(load) +", valore: " + str(json_loads[load]))
+
+print()   
+json_dict = {
+    "nome": "Jhonny",
+    "eta": 24
+}
+
+json_load = json.dumps(json_dict) # .dumps() trasforma un dictionary in un JSON, o meglio in una stringa (il JSON di base è una stringa)
+print(json_load)
+print(type(json_load)) # ritorna str perchè il JSON di base è una stringa
+
+json_format = {
+    "nome": "Jhonny",
+    "eta": 24,
+    "isOnline": False,
+    "interessi": ["sport"],
+    "moneteInTasca": None
+}
+
+json_formatted = json.dumps(json_format,indent = 4) # con indent è possibile indentare il JSON in modo da ottenere una formattazione più leggibile
+print(json_formatted)
+
+print()
+
+json_formatted = json.dumps(json_format,indent = 4,separators=(". ","= ")) # se si aggiunge separators=(tuple) si possono cambiare i separatori all'interno del JSON
+print(json_formatted)
+
+print()
+
+json_formatted = json.dumps(json_format,indent = 4,separators=(". "," = "),sort_keys=True) # se si aggiunge sort_keys=bool si possono ordinare le chiavi se True le ordina in modo crescente False in modo decrescente all'interno del JSON
+print(json_formatted)
+
+
 
