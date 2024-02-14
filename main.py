@@ -1136,6 +1136,8 @@ print("PIP")
     - Usare, rimuovere e mostrare pacchetti
     
     (pypi.org sito per scaricare i pacchetti in python)
+    
+    - IMPORTANTE!: per gli importi di moduli esterni fare attenzione al tipo di interprete che si utilizza
 """
 
 
