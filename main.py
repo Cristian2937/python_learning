@@ -1140,6 +1140,11 @@ print("PIP")
     - IMPORTANTE!: per gli importi di moduli esterni fare attenzione al tipo di interprete che si utilizza
 """
 
+import camelcase
 
+camelcase_instance = camelcase.CamelCase()
+frase = "hello world"
+
+print(camelcase_instance.hump(frase))
 
 
