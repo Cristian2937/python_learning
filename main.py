@@ -1,4 +1,6 @@
 from ast import Name
+from itertools import count
+from re import M
 import sys
 print(sys.executable)
 
@@ -1190,4 +1192,61 @@ meno_uno = -1
     # raise Exception("Numero minore di zero") # il "raise" a quanto pare esegue la stessa logica del throw, una volta lanciato l'errore non è più possibile andare avanti con l'applicazione
 
 # ------------
+print()
+print("User Input")
+
+"""
+    - Creare persona
+    - Creare tupla operazioni
+    - Definire start
+    - Chiamare start
+    - Aggiungere traccia per modifica ed eliminazione
+"""
+
+persona = {
+    "nome":"Luca",
+    "cognome":"Rossi",
+    "eta": 25
+}
+
+operazioni = ("aggiungere","modificare","eliminare","uscire")
+
+def start():
+    operazione = input("Cosa vuoi fare? ")
+    if operazione == operazioni[0]:
+        ins = input("Aggiungi chiave valore separati da una virgola: ")
+        aggiungi(ins.split(","))
+    elif operazione == operazioni[1]:
+        mod = input("Cosa vuoi modificare: ")
+        modifica(mod.split(","))
+    elif operazione == operazioni[2]:
+        el = input("Cosa vuoi eliminare? ")
+        elimina(el.split(","))
+    
+def aggiungi(param):
+    chiave = param[0]
+    valore = param[1]
+    persona[chiave] = valore
+    print(persona)
+    
+def modifica(param):
+    chiave = param[0]
+    valore = param[1]
+    persona[chiave] = valore
+    print(persona)
+        
+        
+def elimina(param):
+    chiave = param[0]
+    # valore = param[1]
+    # persona[chiave] = valore
+    persona.pop(chiave)
+    print(persona)
+    
+# INIZIO OPERAZIONE
+while True:
+    start()
+
+
+
 
