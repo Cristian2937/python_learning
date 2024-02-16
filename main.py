@@ -1,3 +1,4 @@
+from ast import Name
 import sys
 print(sys.executable)
 
@@ -1147,4 +1148,46 @@ frase = "hello world"
 
 print(camelcase_instance.hump(frase))
 
+# ----------
+print()
+print("Try Except")
+
+"""
+    - Errore vs Error handling
+    - Multiple exception
+    - else
+    - finally (esempio file)
+    - raise/throw exception
+
+"""
+
+# Come gestire gli errori in python:
+#   - attraverso il try except
+
+# print(variabile_inesistente) # ERRORE: variabile_inesistente non è definita
+
+# NameError
+try:
+    print(variabile_inesistente)
+except NameError:
+    print("Si è verificato un problema perchè variabile_inesistente non è definita")
+finally:
+    print("Il finally viene sempre eseguito dopo un try...except")
+    
+print()
+    
+cinque = 5
+try:
+    print("ciao " + cinque)
+except TypeError:
+    print("non è possibile unire una stringa e un intero insieme")
+else:
+    print("Nessun problema")
+    
+meno_uno = -1
+
+# if meno_uno < 0:
+    # raise Exception("Numero minore di zero") # il "raise" a quanto pare esegue la stessa logica del throw, una volta lanciato l'errore non è più possibile andare avanti con l'applicazione
+
+# ------------
 
