@@ -1249,5 +1249,25 @@ def elimina(param):
 #     start()
 
 
+# ---------------
+print()
+print("FORMATTAZIONE DELLE STRINGHE")
 
+"""
+    - Formattazione base
+    - Valori multipli
+    - Indici
+    - Indici nominali
+"""
+
+
+peso = 65
+altezza = 178
+
+# FORMATTAZIONE STRINGA TRAMITE INDICI NUMERATI
+frase = "Ciao sono Luca e sono alto {0} cm e peso {1}kg".format(altezza,peso)
+print(frase)
+# FORMATTAZIONE STRINGA TRAMITE INDICI NOMINATIVI
+frase = "Ciao sono Luca e sono alto {altezza} cm e peso {peso}kg".format(altezza= altezza,peso= peso)
+print(frase)
 
