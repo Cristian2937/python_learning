@@ -1244,8 +1244,9 @@ def elimina(param):
     print(persona)
     
 # INIZIO OPERAZIONE
-while True:
-    start()
+#SCOMMENTARE QUANDO SI VUOLE RIPROVARE A FAR PARTIRE LA FUNZIONE
+# while True:
+#     start()
 
 
 
