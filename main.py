@@ -1271,3 +1271,55 @@ print(frase)
 frase = "Ciao sono Luca e sono alto {altezza} cm e peso {peso}kg".format(altezza= altezza,peso= peso)
 print(frase)
 
+# -------------------
+print()
+print("LAVORARE CON I FILE")
+
+"""
+    File handling
+        # r - Read: apre il file per leggerne il contenuto, errore se non esiste
+        # a - Append: apre il file per mettere in coda il contenuto, lo crea se non esiste
+        # w - Write: apre il file per scrivere, lo crea se non esiste
+        # x - Create: crea il file, errore se già esiste
+    
+    - Aprire un file
+    - Leggere un file: intero o una parte
+    - Scrivere in un file
+    - Creare un file
+    - Eliminare file (check) e eliminare la cartella   
+"""
+
+
+FILESTREAM = "testo.txt"
+fileOpen = open(FILESTREAM,"w")
+fileOpen.write("Hello World")
+
+fileOpen.close()
+
+fileAppend = open(FILESTREAM,"a")
+fileAppend.write("\nHello world 2")
+
+fileAppend.close()
+   
+fileRead = open(FILESTREAM,"r")
+print(fileRead.read())
+
+fileRead.close()
+
+# ELIMINARE UN FILE
+
+import os
+
+# os.remove("testo.txt") # RIMUOVE UN FILE DALLA DIRECTORY INDICANDO IL PATH DOVE DEVE ANDARE AD ELIMINARE IL FILE
+
+# ELIMINARE UNA CARTELLA SEMPRE CON L'IMPORT os
+if os.path.exists("prova"):
+    os.rmdir("prova")
+    print("Cartella eliminata con successo!!")
+else:
+    print("Nessuna cartella trovata")
+
+   
+
+
+
