@@ -1468,5 +1468,44 @@ finally:
         databaseSelectAll.close()
     print("\nal DB Connessione chiusa")
     
+    
+# ------------------
+print()
+print("CREARE TABELLE ED ESEGUIRE JOIN SU TABELLE TRAMITE PYTHON")
+
+# CREARE LA CONNESSIONE AL DATABASE
+databaseJoin = mysql.connector.connect(
+    host=LOCALHOST,
+    user=USER,
+    password=PASSWORD,
+    database="provadb"
+)
+
+try:
+    cursor = databaseJoin.cursor()
+    cursor.execute("SHOW TABLES")
+    
+    
+    
+    fetchedTables = cursor.fetchall()
+    
+    table_exist = False
+    for fetchTable in fetchedTables:
+        if 'cities' in fetchTable:
+            table_exist = True
+            break
+        else:
+            cursor.execute("CREATE TABLE cities (id INT AUTO_INCREMENT PRIMARY KEY, nome VARCHAR (255))")
+            print("Tabella creata con successo")
+            
+    cursor.execute("ALTER TABLE provadb.clienti ADD CONSTRAINT fk_city FOREIGN KEY (id) REFERENCES provadb.cities (id)")
+    
+except mysql.connector.Error as error:
+    print("Errore, qualcosa è andato storto: {}".format(error))
+finally:
+    if databaseJoin.is_connected():
+        cursor.close()
+        databaseJoin.close()    
+    
 
 
