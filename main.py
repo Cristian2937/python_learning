@@ -1318,8 +1318,155 @@ if os.path.exists("prova"):
     print("Cartella eliminata con successo!!")
 else:
     print("Nessuna cartella trovata")
+    
+    
+# -------------------
+print()
+print("CONNESSIONE AL DB E OPERAZIONI DI INSERT UPDATE E DELETE")
+# comando per installare mysql connector: pip install mysql-connector-python
 
-   
+import mysql.connector
 
+# CREARE UNA CONNESIONE AL DATABASE FORNENDO I DATI TRA CUI LOCALHOST, NOME UTENTE E PASSWORD
+LOCALHOST = "localhost"
+USER = "root"
+PASSWORD = "root"
+conn = mysql.connector.connect(
+    host=LOCALHOST,
+    user=USER,
+    password= PASSWORD
+)
+
+cursor = conn.cursor()
+
+cursor.execute("SHOW DATABASES")
+
+database_exist = False
+
+myDataBases = cursor.fetchall()
+
+# VERIFICARE SE IL DATABASE ESISTE REALMENTE, SE NON ESISTE LO CREA
+for myDataBase in myDataBases:
+    if 'provadb' in myDataBase:
+        database_exist = True
+        break
+        
+if database_exist:
+    print("Il database già esiste")
+else:
+    cursor.execute("CREATE DATABASE provadb")
+    
+    
+# EFFETTUARE OPERAZIONI SULLA TABELLE DEL DB APPENA CREATA UTILIZZANDO NEL PARAMETRO database IL NOME DELLO SCHEMA
+databaseSelection = mysql.connector.connect(
+    host=LOCALHOST,
+    user=USER,
+    password= PASSWORD,
+    database="provadb"
+)
+
+# VERIFICARE SE UNA TABELLA ESISTE ALL'INTERNO DEL DATABASE, SE NON ESISTE LA CREA
+try:
+    cursor = databaseSelection.cursor()
+    table_exist = False
+    cursor.execute("SHOW TABLES")
+    tableSelections = cursor.fetchall()
+    
+    for tableSelection in tableSelections:
+        if 'clienti' in tableSelection:
+            table_exist = True
+            break
+    if table_exist:
+        print("TABLE ALREADY EXIST IN THE DATABASE SCHEMA")
+    else:
+        cursor.execute("CREATE TABLE clienti (id INT AUTO_INCREMENT PRIMARY KEY, nome VARCHAR (255))")
+except mysql.connector.Error as e:
+    print("Ops, an error as occured during the operation: "+ e)
+finally:
+    if databaseSelection.is_connected():
+        
+        # INSERIMENTO DI DATI ALL'INTERNO DELLA TABELLA DEL DATABASE
+        # insert = "INSERT INTO clienti (nome,cognome) VALUES (%s,%s)"
+        # val = ("Jhonny","Bravo")
+        # cursor.execute(insert,val)
+        # databaseSelection.commit() # commit serve per effettuare l'operazione di INSERT,UPDATE e DELETE
+        
+        update = "UPDATE clienti set nome = %s WHERE id = %s"
+        val = ("Mario",2)
+        cursor.execute(update,val)
+        databaseSelection.commit()
+        
+        delete = "DELETE FROM provadb.clienti where id = %s"
+        val = (2,)
+        cursor.execute(delete,val)
+        databaseSelection.commit()
+        
+        # OPERAZIONE SEMPRE ESEGUITA PER PERMETTERE AL DATABASE DI EFFETTUARE LA CHIUSURA DELLO STREAM
+        databaseSelection.close()
+        cursor.close()
+    print("The connection is closed")
+    
+    
+# EFFETTUARE UN INSERIMENTO MASSIVO DI DATI
+
+try:
+    databaseInsert = mysql.connector.connect(
+    host=LOCALHOST,
+    user=USER,
+    password= PASSWORD,
+    database="provadb"
+)
+    cursor = databaseInsert.cursor()
+    
+    #insertMassive = "INSERT INTO clienti (nome,cognome) VALUES(%s,%s)"
+    #values = [
+    #    ('Mario','Verdi'),
+    #    ('Matteo','Bianchi'),
+    #    ('Federico','Gialli'),
+    #    ('Simone','Rossi'),
+    #]
+    #cursor.executemany(insertMassive,values)
+    #databaseInsert.commit()
+
+except mysql.connector.Error as error:
+    print("Ops errore nell'effettuare l'operazione': {}".format(error))
+
+finally:
+    if databaseInsert.is_connected():
+        cursor.close()
+        databaseInsert.close()
+    print("\nal DB Connessione chiusa")
+    
+
+# EFFETTUARE SELEZIONE DI TUTTI I RECORD DELLA TABELLA MYSQL DA PYTHON
+
+try:
+    databaseSelectAll = mysql.connector.connect(
+    host=LOCALHOST,
+    user=USER,
+    password= PASSWORD,
+    database="provadb"
+)
+    cursor = databaseSelectAll.cursor()
+    
+    # ! IMPORTANTE: per poter scrivere una query su più righe è possibile farlo mettendo uno backslash \ e andare a capo 
+    select = "SELECT * \
+        FROM clienti"
+    cursor.execute(select)
+    
+    allClients = cursor.fetchall()
+    
+    for client in allClients:
+        print("Id: {} Nome: {}, Cognome: {}".format(client[0],client[1],client[2]))
+
+except mysql.connector.Error as error:
+    print("Ops errore nell'effettuare la selezione': {}".format(error))
+
+finally:
+    if databaseSelectAll.is_connected():
+        cursor.close()
+        databaseSelectAll.close()
+    print("\nal DB Connessione chiusa")
+    
 
 
