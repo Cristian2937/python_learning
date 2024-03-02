@@ -1485,8 +1485,6 @@ try:
     cursor = databaseJoin.cursor()
     cursor.execute("SHOW TABLES")
     
-    
-    
     fetchedTables = cursor.fetchall()
     
     table_exist = False
@@ -1498,8 +1496,38 @@ try:
             cursor.execute("CREATE TABLE cities (id INT AUTO_INCREMENT PRIMARY KEY, nome VARCHAR (255))")
             print("Tabella creata con successo")
             
-    cursor.execute("ALTER TABLE provadb.clienti ADD CONSTRAINT fk_city FOREIGN KEY (id) REFERENCES provadb.cities (id)")
+    cursor.execute("INSERT INTO provadb.cities (nome) VALUES('MILANO')")
+    databaseJoin.commit()
     
+    if(table_exist):
+        print('TABELLA ESISTENTE')
+    else:
+        cursor.execute("ALTER TABLE provadb.clienti ADD CONSTRAINT fk_city FOREIGN KEY (fk_city) REFERENCES provadb.cities (kp_city)")
+    
+    # QUERY DI UPDATE IN PYTHON
+    #update = "UPDATE provadb.clienti SET fk_city = 2 \
+    #    WHERE provadb.clienti.cognome like '%Verdi%'"
+
+    #cursor.execute(update)
+    #databaseJoin.commit()
+    
+    # ESEMPIO DI JOIN SULLE TABELLE IN PYTHON
+    
+    selectWithJoin = "SELECT \
+        cli.id,\
+        cli.nome,\
+        cli.cognome,\
+        ci.nome\
+        FROM provadb.clienti cli\
+        LEFT JOIN provadb.cities ci ON cli.fk_city = ci.kp_city\
+        WHERE cli.fk_city IS NOT NULL\
+        ORDER BY cli.id ASC"
+    cursor.execute(selectWithJoin)
+    results = cursor.fetchall()
+    
+    for result in results:
+        print('id: {}, nome: {},cognome: {}, città: {}'.format(result[0],result[1],result[2],result[3]))
+        
 except mysql.connector.Error as error:
     print("Errore, qualcosa è andato storto: {}".format(error))
 finally:
