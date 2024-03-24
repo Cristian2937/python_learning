@@ -1534,6 +1534,22 @@ finally:
     if databaseJoin.is_connected():
         cursor.close()
         databaseJoin.close()    
-    
+        
+        
+# IMPLEMENTAZIONE DI MYSQL ORM #installazione pacchetto ORM MySql pip install orm-mysql
+from orm import Table
+from connections import CONNECTION
+
+Table.connect(config_dict= CONNECTION)
+
+from  Classi.ClientiClass import Clienti
+
+#new_client = Clienti.create(nome='Marco',cognome='Rossi')
+#new_client.save()
+
+get_clients = Clienti.where(cognome='Rossi')
+
+for client in get_clients:
+    print(client)
 
 
